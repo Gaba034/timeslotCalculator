@@ -1,17 +1,17 @@
-import minuteconversor as conversor
-from dataclasses import dataclass, field
+from timerange import TimeRange
+from person import Person
 
-@dataclass
-class TimeRange:
-    start_time: str # 00:30
-    end_time: str # 5:00
-
-    start_minutes : int = field(init=False, repr= False)# 30
-    end_minutes : int = field(init=False, repr= False)# 300
+def main():
+    available_time = list(range(1440))
+    person1 = Person("Tom")
+    person1.add_busy_range(TimeRange(start_time="08:00",end_time="18:00"))
+    person2 = Person("Bob")
+    person2.add_busy_range(TimeRange(start_time="10:00",end_time="14:00"))
     
-    def __post_init__(self):
-        self.start_minutes = conversor.timerange_to_minutes(self.start_time)
-        self.end_minutes = conversor.timerange_to_minutes(self.end_time)
+    for time in available_time[:]:
+        if time in person1.busy_time_range[0].minutes_range:
+            available_time.remove(time)
+    print(available_time)
 
-t1 = TimeRange(start_time="00:30", end_time="05:00")
-print(t1)
+if __name__ == '__main__':
+    main()
