@@ -2,7 +2,7 @@ import minuteconversor as conversor
 from dataclasses import dataclass, field
 
 @dataclass
-class TimeRange:
+class TimeRange: # Creates a TimeRange object with the specified range
     start_time: str # 00:30
     end_time: str # 5:00
 

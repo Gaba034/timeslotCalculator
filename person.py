@@ -2,8 +2,8 @@ import minuteconversor as conversor
 from timerange import TimeRange
 from dataclasses import dataclass, field
 
-@dataclass
-class Person():
+@dataclass 
+class Person(): # Creates a new Person object with the give name and busy  time range
     name: str
     busy_time_range: list[TimeRange] = field(default_factory=list, repr = False)
 

@@ -2,6 +2,7 @@ from timerange import TimeRange
 from person import Person
 
 def main():
+    
     available_time = list(range(1440))
     person1 = Person("Tom")
     person1.add_busy_range(TimeRange(start_time="08:00",end_time="18:00"))
