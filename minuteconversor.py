@@ -24,7 +24,6 @@ def minutes_to_timerange_str(m):
 def enhance_time_display(l: list):
     agrouped_list = []
     reusable_list = []
-
     for element in l:
         if reusable_list == []:
             reusable_list.append(element)
@@ -35,7 +34,6 @@ def enhance_time_display(l: list):
             agrouped_list.append(reusable_list[:])
             reusable_list.clear()
             reusable_list.append(element)
-
     agrouped_list.append(reusable_list)
     time_ranges = []
     for group in agrouped_list:
@@ -43,6 +41,5 @@ def enhance_time_display(l: list):
         end_time = minutes_to_timerange_str(m=group[-1])
         time_range_str = f"{start_time} <-> {end_time}"
         time_ranges.append(time_range_str)
-    
     return time_ranges
 

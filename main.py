@@ -4,7 +4,6 @@ from person import Person
 from customized_list import CustomList
 
 def main():
-    
     available_time = CustomList(range(1440))
     person1 = Person("Tom")
     person1.add_busy_range(TimeRange(start_time="08:00",end_time="12:00"))
@@ -18,6 +17,6 @@ def main():
                 available_time.remove_if_exist(time)
     for tr in h.enhance_time_display(available_time):
         print(f"Vocês podem se encontrar às {tr}")
-
+        
 if __name__ == '__main__':
     main()

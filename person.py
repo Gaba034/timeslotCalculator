@@ -12,4 +12,3 @@ class Person(): # Creates a new Person object with the give name and busy  time 
     def add_busy_range(self, obj:TimeRange):
         self.busy_time_range.append(obj)
         Person.all_busy_minutes_range.append(obj.minutes_range)
-
