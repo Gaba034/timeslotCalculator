@@ -17,11 +17,11 @@ def minutes_to_timerange_str(m):
     """
     hour = m // 60
     minutes = m % 60
-    timestring = f'{hour:02d}:{minutes:02d}'
-    print(timestring)
+    hour_str = f'{hour:02d}'
+    minutes_str = f'{minutes:02d}'
+    return f"{hour_str}:{minutes_str}"
 
-def enhance_time_display():
-    l = [0,1,2,3,60,61,62]
+def enhance_time_display(l: list):
     agrouped_list = []
     reusable_list = []
 
@@ -37,8 +37,12 @@ def enhance_time_display():
             reusable_list.append(element)
 
     agrouped_list.append(reusable_list)
-    print(agrouped_list)
+    time_ranges = []
+    for group in agrouped_list:
+        start_time = minutes_to_timerange_str(m=group[0])
+        end_time = minutes_to_timerange_str(m=group[-1])
+        time_range_str = f"{start_time} <-> {end_time}"
+        time_ranges.append(time_range_str)
+    
+    return time_ranges
 
-
-enhance_time_display()
-minutes_to_timerange_str(m = 519)
